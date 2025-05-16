@@ -1,6 +1,7 @@
-class coffee :
+class Coffee :
     def __init__(self,name):
         self.name = name
+        self._orders = []
 
     @property
     def name(self):
@@ -10,6 +11,7 @@ class coffee :
         return self._orders
 
     def customers(self):
+        from customer import Customer 
         return list({order.customer for order in self._orders})
 
     @name.setter

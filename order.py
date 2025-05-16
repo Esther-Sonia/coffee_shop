@@ -7,7 +7,9 @@ class Order:
         self.customer = customer
         self.coffee = coffee
         self.price = price
-        Order ._all_orders_append(self)
+        self._all_orders.append(self)
+        coffee._orders.append(self)  
+        customer._orders.append(self)
 
     @property
     def customer(self):

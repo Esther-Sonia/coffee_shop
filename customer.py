@@ -1,9 +1,7 @@
-from order import Order 
-
 class Customer:
     def __init__(self, name):
         self.name = name
-
+        self._orders = []
 
     @property
     def name(self):
@@ -18,14 +16,25 @@ class Customer:
         self._name = value
 
     def orders(self):
-        return [order for order in Order._all_orders if order.customer == self ]
+        return self._orders  
     
     def coffees(self):
-        coffees = {order.coffee for order in self.orders()}
-        return list(coffees)
-
+        from coffee import Coffee  
+        return list({order.coffee for order in self._orders})
+    
     def create_order(self, coffee, price):
         from order import Order
         order = Order(self, coffee, price)
         self._orders.append(order)
         return order
+
+    @classmethod
+    def most_aficionado(cls, coffee):
+        top_customer = None
+        top_spent = 0
+        for customer in coffee.customers():
+            total = sum(order.price for order in customer.orders() if order.coffee == coffee)
+            if total > top_spent:
+                top_spent = total
+                top_customer = customer
+        return top_customer
