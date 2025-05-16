@@ -5,6 +5,12 @@ class coffee :
     @property
     def name(self):
         return self._name
+    
+    def orders(self):
+        return self._orders
+
+    def customers(self):
+        return list({order.customer for order in self._orders})
 
     @name.setter
     def name(self, value):

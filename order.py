@@ -2,10 +2,12 @@ from customer import Customer
 from coffee import Coffee
 
 class Order:
+    _all_orders = []
     def __init__(self, customer, coffee, price):
         self.customer = customer
         self.coffee = coffee
         self.price = price
+        Order ._all_orders_append(self)
 
     @property
     def customer(self):
