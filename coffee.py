@@ -19,3 +19,11 @@ class coffee :
         if len(value) < 3:
             raise ValueError("Coffee name must be at least 3 characters long")
         self._name = value   
+
+    def num_orders(self):
+        return len(self._orders)
+
+    def average_price(self):
+        if not self._orders:
+            return 0
+        return sum(order.price for order in self._orders) / len(self._orders)    

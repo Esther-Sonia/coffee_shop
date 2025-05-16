@@ -24,3 +24,8 @@ class Customer:
         coffees = {order.coffee for order in self.orders()}
         return list(coffees)
 
+    def create_order(self, coffee, price):
+        from order import Order
+        order = Order(self, coffee, price)
+        self._orders.append(order)
+        return order
