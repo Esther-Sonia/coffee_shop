@@ -13,6 +13,8 @@ Order(customer2, coffee1, 5.0)
 Order(customer1, coffee2, 4.5)
 
 
-print("All tests passed!")
-print(f"{customer1.name} ordered: {[coffee.name for coffee in customer1.coffees()]}")
-print(f"{coffee1.name} was ordered by: {[customer.name for customer in coffee1.customers()]}")
+
+print(f"Customer 1: {customer1.name}")
+print(f"{coffee1.name} Customers:", [c.name for c in coffee1.customers()])
+print(f"{coffee1.name} Num Orders:", coffee1.num_orders())
+
