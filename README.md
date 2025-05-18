@@ -21,7 +21,8 @@ A Python application that models a Coffee Shop domain using object-oriented prog
 
 
 ## Project Structure
-`coffee_shop/
+```
+coffee_shop/
 │
 ├── customer.py # Customer class
 ├── coffee.py # Coffee class
@@ -33,7 +34,7 @@ A Python application that models a Coffee Shop domain using object-oriented prog
 │ ├── test_coffee.py
 │ └── test_order.py
 └── README.md`
-
+```
 
 # To test a specific file
 python -m pytest tests/test_customer.py
